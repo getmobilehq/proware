@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proware Associates — Brand Bible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1E27; --ink-soft:#16323F;
+    --paper:#F6F3EC; --paper-tint:#EDE7DB;
+    --accent:#EE6A1C; --accent-deep:#CE530E;
+    --muted:#5A6A71; --line:rgba(12,30,39,.14);
+    --display:"Bricolage Grotesque",Georgia,serif;
+    --body:"Manrope",-apple-system,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:#E7E1D5;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;padding:40px 16px}
+  .page{max-width:920px;margin:0 auto 28px;background:var(--paper);border-radius:8px;overflow:hidden;box-shadow:0 18px 50px -28px rgba(12,30,39,.5)}
+  .pad{padding:64px 68px}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.02em}
+  h2{font-size:30px;margin-bottom:8px}
+  h3{font-size:19px}
+  p{font-size:15px}
+  .lead{color:var(--muted);font-weight:500;max-width:62ch}
+  .sec-divider{height:1px;background:var(--line);margin:0 68px}
+
+  /* COVER */
+  .cover{background:var(--ink);color:var(--paper);padding:80px 68px 72px;position:relative;overflow:hidden}
+  .cover .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(246,243,236,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(246,243,236,.06) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse 70% 80% at 80% 10%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 80% 10%,#000,transparent 70%)}
+  .cover-inner{position:relative;z-index:1}
+  .cover .mark{display:flex;align-items:center;gap:13px;margin-bottom:60px}
+  .cover .mark span{font-family:var(--display);font-weight:800;font-size:22px}
+  .cover h1{font-size:60px;color:#fff;letter-spacing:-.03em;line-height:.98}
+  .cover h1 em{font-style:normal;color:var(--accent)}
+  .cover .sub{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(246,243,236,.6);margin-top:24px}
+  .cover .meta{margin-top:54px;padding-top:22px;border-top:1px solid rgba(246,243,236,.18);display:flex;gap:50px;flex-wrap:wrap}
+  .cover .meta div .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .cover .meta div .v{font-weight:600;font-size:15px;color:#fff;margin-top:4px}
+
+  /* ESSENCE */
+  .statement{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.25;letter-spacing:-.01em;max-width:24ch}
+  .statement em{font-style:normal;color:var(--accent-deep)}
+  .idea-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .idea{flex:1;min-width:150px;background:var(--ink);color:#fff;border-radius:12px;padding:24px 22px}
+  .idea .n{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+  .idea h3{color:#fff;font-size:21px;margin:10px 0 6px}
+  .idea p{color:rgba(246,243,236,.66);font-size:13.5px;font-weight:500}
+
+  /* VOICE */
+  .voice-grid{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
+  .voice{flex:1;min-width:200px;border:1px solid var(--line);border-radius:12px;padding:22px 22px}
+  .voice .h{font-family:var(--display);font-weight:700;font-size:17px;margin-bottom:6px}
+  .voice p{color:var(--muted);font-size:13.5px;font-weight:500}
+  .dodont{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+  .dd{flex:1;min-width:240px;border-radius:12px;padding:22px 24px}
+  .dd.do{background:rgba(238,106,28,.08);border:1px solid rgba(238,106,28,.3)}
+  .dd.dont{background:var(--paper-tint);border:1px solid var(--line)}
+  .dd .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;font-weight:700}
+  .dd.do .lbl{color:var(--accent-deep)}
+  .dd.dont .lbl{color:var(--muted)}
+  .dd ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .dd li{font-size:13.5px;font-weight:500;padding-left:18px;position:relative;color:var(--ink)}
+  .dd.do li::before{content:"+";position:absolute;left:0;color:var(--accent-deep);font-weight:700}
+  .dd.dont li::before{content:"–";position:absolute;left:0;color:var(--muted);font-weight:700}
+
+  /* LOGO */
+  .logo-row{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap}
+  .logo-box{flex:1;min-width:220px;border-radius:12px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line)}
+  .logo-box.light{background:var(--paper)}
+  .logo-box.dark{background:var(--ink);border-color:var(--ink)}
+  .logo-lockup{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:23px}
+  .logo-box.dark .logo-lockup{color:#fff}
+  .logo-box .cap{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+  .logo-box.dark .cap{color:rgba(246,243,236,.5)}
+  .logo-notes{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+  .logo-note{flex:1;min-width:160px;font-size:13px;color:var(--muted);font-weight:500}
+  .logo-note b{display:block;color:var(--ink);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+
+  /* COLOUR */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  .sw{border-radius:11px;overflow:hidden;border:1px solid var(--line)}
+  .sw .chip{height:78px}
+  .sw .info{padding:12px 13px;background:#fff}
+  .sw .nm{font-weight:700;font-size:13px}
+  .sw .hex{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px;text-transform:uppercase}
+  .sw .use{font-size:11px;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.4}
+  .ratio{display:flex;height:42px;border-radius:9px;overflow:hidden;margin-top:26px;font-family:var(--mono);font-size:11px;font-weight:700}
+  .ratio span{display:flex;align-items:center;justify-content:center}
+  .ratio .r1{flex:7;background:var(--paper-tint);color:var(--ink)}
+  .ratio .r2{flex:2;background:var(--ink);color:#fff}
+  .ratio .r3{flex:1;background:var(--accent);color:#fff}
+  .cap-note{font-size:12px;color:var(--muted);margin-top:10px;font-weight:500}
+
+  /* TYPE */
+  .type-block{border-top:1px solid var(--line);padding:26px 0}
+  .type-block:first-of-type{border-top:none}
+  .type-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .type-meta .fn{font-family:var(--display);font-weight:700;font-size:17px}
+  .type-meta .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .specimen-display{font-family:var(--display);font-weight:700;font-size:44px;letter-spacing:-.02em;line-height:1}
+  .specimen-body{font-family:var(--body);font-size:16px;color:var(--ink);max-width:60ch;font-weight:500}
+  .specimen-mono{font-family:var(--mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+  .glyphs{font-size:13px;color:var(--muted);margin-top:10px;font-weight:500}
+
+  /* ELEMENTS */
+  .el-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+  .el{border:1px solid var(--line);border-radius:12px;padding:24px;background:#fff}
+  .el .label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .demo-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:9px}
+  .demo-eyebrow::before{content:"";width:22px;height:1px;background:var(--accent)}
+  .demo-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:600;font-size:14px;padding:12px 22px;border-radius:100px}
+  .demo-btn.ghost{background:transparent;color:var(--ink);border:1px solid rgba(12,30,39,.25);margin-left:8px}
+  .demo-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--accent);padding:5px 10px;border-radius:100px;font-weight:700}
+  .demo-num{font-family:var(--mono);font-size:13px;color:var(--accent-deep);letter-spacing:.1em}
+  .demo-card{background:var(--ink);border-radius:11px;padding:20px 22px;color:#fff}
+  .demo-card .n{font-family:var(--mono);font-size:11px;color:var(--accent)}
+  .demo-card h4{font-family:var(--display);font-size:18px;color:#fff;margin:8px 0 5px}
+  .demo-card p{font-size:12.5px;color:rgba(246,243,236,.62);font-weight:500}
+
+  .foot{padding:30px 68px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;background:var(--paper-tint)}
+
+  @media(max-width:680px){
+    .pad,.cover,.foot,.sec-divider{padding-left:26px;padding-right:26px;margin-left:0;margin-right:0}
+    .cover h1{font-size:40px}.swatches{grid-template-columns:repeat(2,1fr)}.el-grid{grid-template-columns:1fr}
+  }
+  @media print{
+    html,body{background:var(--paper);padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .page{box-shadow:none;margin:0;max-width:none;border-radius:0;page-break-after:always;background:var(--paper);min-height:296mm;display:flex;flex-direction:column}
+    .page:last-child{page-break-after:auto}
+    .page > .pad{flex:1 0 auto}
+    @page{size:A4;margin:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER + ESSENCE ===== -->
+<div class="page">
+  <div class="cover">
+    <div class="grid-bg"></div>
+    <div class="cover-inner">
+      <div class="mark">
+        <svg width="38" height="38" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="8" fill="#16323F"/><path d="M10 23V11h6.4c2.6 0 4.2 1.5 4.2 3.9 0 2.4-1.6 3.9-4.2 3.9H13" stroke="#EE6A1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12l3 3-3 3" stroke="#F6F3EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Proware Associates</span>
+      </div>
+      <h1>Brand <em>Bible</em></h1>
+      <div class="sub">Cargo · Logistics · Warehousing</div>
+      <div class="meta">
+        <div><div class="k">Version</div><div class="v">1.0 — Draft</div></div>
+        <div><div class="k">Based on</div><div class="v">Marketing site v1</div></div>
+        <div><div class="k">Status</div><div class="v">For review</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pad">
+    <span class="eyebrow">The essence</span>
+    <p class="statement">Proware is an end-to-end logistics partner that doesn't stop at the dock — we <em>move</em> goods, <em>lease</em> space and equipment, and <em>manage</em> warehousing.</p>
+    <div class="idea-row">
+      <div class="idea"><span class="n">/ 01</span><h3>Move it</h3><p>Air, sea and road freight, door to door, with customs handled.</p></div>
+      <div class="idea"><span class="n">/ 02</span><h3>Lease it</h3><p>Flexible leasing of space, vehicles and handling equipment.</p></div>
+      <div class="idea"><span class="n">/ 03</span><h3>Store it</h3><p>Secure, managed warehousing with inventory and fulfilment.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VOICE ===== -->
+<div class="page">
+  <div class="pad">
+    <span class="eyebrow">Brand voice</span>
+    <h2>Plain-spoken, confident, accountable.</h2>
+    <p class="lead">Proware sounds like a trusted operator, not a marketing brochure. We earn confidence by being clear and specific about what we do.</p>
+    <div class="voice-grid">
+      <div class="voice"><div class="h">Clear over clever</div><p>Say exactly what the service does. No jargon, no filler.</p></div>
+      <div class="voice"><div class="h">Confident, not boastful</div><p>State capability plainly. Avoid hype and invented metrics.</p></div>
+      <div class="voice"><div class="h">Concrete</div><p>Name real services, modes and outcomes the reader can picture.</p></div>
+      <div class="voice"><div class="h">Partner, not courier</div><p>We frame ourselves as one accountable partner across the journey.</p></div>
+    </div>
+    <div class="dodont">
+      <div class="dd do">
+        <div class="lbl">Do say</div>
+        <ul>
+          <li>"Your cargo, moved and managed end to end."</li>
+          <li>"One accountable partner, from collection to delivery to storage."</li>
+          <li>"Add capacity for a season without the capital cost."</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <div class="lbl">Avoid</div>
+        <ul>
+          <li>"World's #1 logistics provider" (unprovable hype).</li>
+          <li>"10,000+ shipments delivered" (no invented numbers).</li>
+          <li>"Synergistic best-in-class solutions" (empty jargon).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGO ===== -->
+<div class="page">
+  <div class="pad">
+    <span class="eyebrow">Logo</span>
+    <h2>The mark.</h2>
+    <p class="lead">A rounded monogram pairing a "P" with a forward arrow — motion and reliability in one shape — locked up with the Bricolage Grotesque wordmark.</p>
+    <div class="logo-row">
+      <div class="logo-box light">
+        <div class="logo-lockup"><svg width="40" height="40" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="8" fill="#0C1E27"/><path d="M10 23V11h6.4c2.6 0 4.2 1.5 4.2 3.9 0 2.4-1.6 3.9-4.2 3.9H13" stroke="#EE6A1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12l3 3-3 3" stroke="#F6F3EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Proware</div>
+        <div class="cap">Primary — on paper</div>
+      </div>
+      <div class="logo-box dark">
+        <div class="logo-lockup"><svg width="40" height="40" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="8" fill="#16323F"/><path d="M10 23V11h6.4c2.6 0 4.2 1.5 4.2 3.9 0 2.4-1.6 3.9-4.2 3.9H13" stroke="#EE6A1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12l3 3-3 3" stroke="#F6F3EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Proware</div>
+        <div class="cap">Reversed — on ink</div>
+      </div>
+    </div>
+    <div class="logo-notes">
+      <div class="logo-note"><b>Clear space</b>Keep clear space around the lockup equal to the height of the monogram.</div>
+      <div class="logo-note"><b>Minimum size</b>Never below 24px tall on screen / 8mm in print, to keep the arrow legible.</div>
+      <div class="logo-note"><b>Don't</b>Recolour the mark, stretch it, add effects, or place it on busy imagery.</div>
+    </div>
+    <p class="cap-note">Note: this is a working placeholder mark generated for the site. If Proware commissions a final logo, the rules above still apply — only the artwork changes.</p>
+  </div>
+</div>
+
+<!-- ===== COLOUR ===== -->
+<div class="page">
+  <div class="pad">
+    <span class="eyebrow">Colour</span>
+    <h2>Deep ink, warm paper, one signal.</h2>
+    <p class="lead">A restrained palette: a near-black teal-navy for authority, a warm off-white for calm, and a single signal amber used sparingly for energy and action.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#0C1E27"></div><div class="info"><div class="nm">Ink</div><div class="hex">#0C1E27</div><div class="use">Primary text, dark sections, logo.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#16323F"></div><div class="info"><div class="nm">Ink Soft</div><div class="hex">#16323F</div><div class="use">Secondary dark, card hovers.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EE6A1C"></div><div class="info"><div class="nm">Signal Amber</div><div class="hex">#EE6A1C</div><div class="use">Accent, buttons, key marks.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#CE530E"></div><div class="info"><div class="nm">Amber Deep</div><div class="hex">#CE530E</div><div class="use">Hover / pressed states.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F6F3EC"></div><div class="info"><div class="nm">Paper</div><div class="hex">#F6F3EC</div><div class="use">Primary background.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#EDE7DB"></div><div class="info"><div class="nm">Paper Tint</div><div class="hex">#EDE7DB</div><div class="use">Alternate section background.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5A6A71"></div><div class="info"><div class="nm">Slate</div><div class="hex">#5A6A71</div><div class="use">Muted body & captions.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px rgba(12,30,39,.1)"></div><div class="info"><div class="nm">White</div><div class="hex">#FFFFFF</div><div class="use">Cards, form fields.</div></div></div>
+    </div>
+    <div class="ratio"><span class="r1">≈ 70% Paper</span><span class="r2">20% Ink</span><span class="r3">10%</span></div>
+    <p class="cap-note">Balance: lead with paper, anchor with ink, and let amber stay rare so it always reads as "act here."</p>
+  </div>
+</div>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<div class="page">
+  <div class="pad">
+    <span class="eyebrow">Typography</span>
+    <h2>Three voices, one system.</h2>
+    <div class="type-block">
+      <div class="type-meta"><span class="fn">Bricolage Grotesque</span><span class="role">Display · headings</span></div>
+      <div class="specimen-display">Move it. Lease it. Store it.</div>
+      <p class="glyphs">Weights 600–800 · tight tracking (−2%) · used for headlines and section titles.</p>
+    </div>
+    <div class="type-block">
+      <div class="type-meta"><span class="fn">Manrope</span><span class="role">Body · UI</span></div>
+      <p class="specimen-body">Proware Associates handles freight by air, sea and road, plus the parts most carriers don't: flexible asset leasing and fully managed warehousing.</p>
+      <p class="glyphs">Weights 400–700 · used for body copy, navigation and buttons.</p>
+    </div>
+    <div class="type-block">
+      <div class="type-meta"><span class="fn">Space Mono</span><span class="role">Labels · technical</span></div>
+      <div class="specimen-mono">Air · Sea · Road · Leasing · Warehousing &nbsp; / 01 — 06</div>
+      <p class="glyphs">Uppercase · wide tracking (.18–.22em) · eyebrow labels, indices and metadata only.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VISUAL LANGUAGE ===== -->
+<div class="page">
+  <div class="pad">
+    <span class="eyebrow">Visual language</span>
+    <h2>Minimal, structured, calm.</h2>
+    <p class="lead">Generous whitespace, a quiet grid, and a few repeatable signatures. Live examples below render in the brand's own styles.</p>
+    <div class="el-grid">
+      <div class="el"><div class="label">Eyebrow label</div><span class="demo-eyebrow">Our services</span></div>
+      <div class="el"><div class="label">Buttons</div><span class="demo-btn">Get a quote ↗</span><span class="demo-btn ghost">Explore</span></div>
+      <div class="el"><div class="label">Index numbering</div><span class="demo-num">/ 01 &nbsp; / 02 &nbsp; / 03</span></div>
+      <div class="el"><div class="label">Edge tag</div><span class="demo-tag">Proware edge</span></div>
+      <div class="el" style="grid-column:1 / -1">
+        <div class="label">Service card (dark)</div>
+        <div class="demo-card"><span class="n">/ 04</span><h4>Leasing</h4><p>Lease warehouse space, vehicles and handling equipment on flexible terms — add capacity without the capital cost.</p></div>
+      </div>
+    </div>
+    <p class="cap-note">Signatures to reuse: thin 1px grid motifs, pill-shaped buttons (100px radius), 14px card corners, dark inverted sections for emphasis, and amber reserved for action.</p>
+  </div>
+  <div class="foot"><span>Proware Associates — Brand Bible v1.0</span><span>Confidential draft · For review</span></div>
+</div>
+
+</body>
+</html>

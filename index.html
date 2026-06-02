@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proware Associates — Cargo, Leasing & Warehousing</title>
+<meta name="description" content="Proware Associates is a fully registered cargo and logistics company. Air and sea freight, door-to-door delivery, equipment leasing and managed warehousing — moved and managed end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1E27;
+    --ink-80:rgba(12,30,39,.80);
+    --ink-60:rgba(12,30,39,.60);
+    --ink-soft:#16323F;
+    --paper:#F6F3EC;
+    --paper-2:#FFFFFF;
+    --paper-tint:#EDE7DB;
+    --accent:#EE6A1C;
+    --accent-deep:#CE530E;
+    --muted:#5A6A71;
+    --line:rgba(12,30,39,.12);
+    --line-strong:rgba(12,30,39,.22);
+    --display:"Bricolage Grotesque",Georgia,serif;
+    --body:"Manrope",-apple-system,sans-serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+    --maxw:1200px;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);display:inline-block}
+  h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;letter-spacing:-.02em}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:15px;
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 24px;border-radius:100px;border:1px solid transparent;
+    cursor:pointer;transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -12px rgba(238,106,28,.9)}
+  .btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn .arr{transition:transform .25s ease}
+  .btn:hover .arr{transform:translate(3px,-3px)}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,.78);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease,background .3s ease;
+  }
+  header.scrolled{border-color:var(--line);background:rgba(246,243,236,.92)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .brand svg{flex:none}
+  .brand small{font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;display:block;margin-top:-2px}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--ink-80);position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--accent);transition:width .28s ease}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--ink)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:96px 0 88px;overflow:hidden}
+  .hero-grid{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 80% 60% at 70% 25%,#000 0%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 70% 25%,#000 0%,transparent 75%);
+    opacity:.7;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(40px,7vw,80px);max-width:14ch;margin:26px 0 0}
+  .hero h1 em{font-style:normal;color:var(--accent);position:relative}
+  .hero p.lead{font-size:clamp(17px,2.1vw,20px);color:var(--muted);max-width:52ch;margin:26px 0 38px;font-weight:500}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-foot{
+    margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+    display:flex;gap:40px;flex-wrap:wrap;align-items:center;
+  }
+  .hero-foot .label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .modes{display:flex;gap:26px;flex-wrap:wrap}
+  .modes span{font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px;color:var(--ink-80)}
+  .modes span b{color:var(--accent);font-family:var(--mono);font-size:12px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .pad{padding:96px 0}
+  .sec-head{max-width:60ch;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(30px,4.4vw,48px);margin:18px 0 0}
+  .sec-head p{color:var(--muted);font-size:17px;margin-top:18px;font-weight:500}
+
+  /* ---------- SERVICES ---------- */
+  #services{background:var(--ink);color:var(--paper)}
+  #services .eyebrow{color:var(--accent)}
+  #services .sec-head p{color:rgba(246,243,236,.66)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(246,243,236,.14);border:1px solid rgba(246,243,236,.14);border-radius:var(--r);overflow:hidden}
+  .svc{
+    background:var(--ink);padding:38px 32px 34px;position:relative;
+    transition:background .3s ease;min-height:268px;display:flex;flex-direction:column;
+  }
+  .svc:hover{background:var(--ink-soft)}
+  .svc .num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+  .svc .ic{margin:18px 0 18px;color:var(--accent)}
+  .svc h3{font-size:23px;color:#fff;margin-bottom:10px}
+  .svc p{font-size:14.5px;color:rgba(246,243,236,.62);font-weight:500;line-height:1.55}
+  .svc.feature{background:linear-gradient(160deg,#16323F 0%,#0C1E27 90%)}
+  .svc .tag{position:absolute;top:24px;right:24px;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:var(--accent);padding:4px 9px;border-radius:100px;font-weight:700}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+  .why-list{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+  .why-item{padding:26px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:46px 1fr;gap:20px;align-items:start}
+  .why-item:last-child{border-bottom:1px solid var(--line)}
+  .why-item .k{font-family:var(--mono);font-size:13px;color:var(--accent-deep)}
+  .why-item h3{font-size:19px;margin-bottom:6px}
+  .why-item p{color:var(--muted);font-size:15px;font-weight:500}
+  .why-card{
+    background:var(--ink);color:var(--paper);border-radius:var(--r);padding:42px 38px;
+    position:sticky;top:100px;overflow:hidden;
+  }
+  .why-card .badge{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  .why-card h3{color:#fff;font-size:29px;margin:16px 0 14px;line-height:1.05}
+  .why-card p{color:rgba(246,243,236,.7);font-size:15px;font-weight:500;margin-bottom:28px}
+  .why-card .line{height:1px;background:rgba(246,243,236,.16);margin:24px 0}
+  .why-card .stat{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0}
+  .why-card .stat b{font-family:var(--display);font-size:18px;color:#fff;font-weight:700}
+  .why-card .stat span{font-size:13px;color:rgba(246,243,236,.6)}
+
+  /* ---------- PROCESS ---------- */
+  #process{background:var(--paper-tint)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .step{position:relative;padding-top:30px}
+  .step .n{font-family:var(--display);font-weight:800;font-size:54px;color:var(--ink);line-height:1;opacity:.13}
+  .step h3{font-size:19px;margin:12px 0 8px}
+  .step p{color:var(--muted);font-size:14.5px;font-weight:500}
+  .step::before{content:"";position:absolute;top:0;left:0;width:38px;height:3px;background:var(--accent)}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .about-grid h2{font-size:clamp(28px,4vw,44px)}
+  .about-copy p{color:var(--ink-80);font-size:16.5px;margin-bottom:18px;font-weight:500}
+  .about-copy p strong{color:var(--ink);font-weight:700}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .pill{font-size:13px;font-weight:600;padding:8px 15px;border:1px solid var(--line-strong);border-radius:100px;color:var(--ink-80)}
+
+  /* ---------- CONTACT ---------- */
+  #contact{background:var(--ink);color:var(--paper)}
+  #contact .eyebrow{color:var(--accent)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  #contact h2{font-size:clamp(30px,4.4vw,50px);color:#fff;margin:18px 0 22px}
+  #contact .intro{color:rgba(246,243,236,.7);font-size:17px;font-weight:500;max-width:42ch;margin-bottom:40px}
+  .cinfo{display:flex;flex-direction:column;gap:2px}
+  .cinfo a,.cinfo div{padding:20px 0;border-top:1px solid rgba(246,243,236,.16);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:padding-left .25s ease}
+  .cinfo a:hover{padding-left:8px}
+  .cinfo .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .cinfo .val{font-weight:600;font-size:15.5px;color:#fff;text-align:right}
+  form{background:rgba(246,243,236,.04);border:1px solid rgba(246,243,236,.16);border-radius:var(--r);padding:34px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,243,236,.6);margin-bottom:8px}
+  .field input,.field select,.field textarea{
+    width:100%;background:rgba(246,243,236,.06);border:1px solid rgba(246,243,236,.18);
+    border-radius:10px;padding:13px 15px;color:#fff;font-family:var(--body);font-size:15px;transition:border-color .2s ease,background .2s ease;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(246,243,236,.4)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:rgba(246,243,236,.09)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23EE6A1C' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+  .field textarea{resize:vertical;min-height:96px}
+  form .btn-primary{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:12.5px;color:rgba(246,243,236,.5);margin-top:14px;text-align:center}
+  .form-ok{display:none;text-align:center;padding:40px 10px}
+  .form-ok.show{display:block;animation:fade .5s ease}
+  .form-ok .check{width:54px;height:54px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .form-ok h3{color:#fff;font-size:22px;margin-bottom:8px}
+  .form-ok p{color:rgba(246,243,236,.7);font-size:15px;font-weight:500}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:rgba(246,243,236,.6);padding:54px 0 36px;border-top:1px solid rgba(246,243,236,.12)}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(246,243,236,.12)}
+  .foot-brand{font-family:var(--display);font-weight:800;font-size:22px;color:#fff;display:flex;align-items:center;gap:10px}
+  .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
+  .foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:700}
+  .foot-col a{display:block;font-size:14px;color:rgba(246,243,236,.65);margin-bottom:9px;font-weight:500;transition:color .2s ease}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;font-family:var(--mono);letter-spacing:.04em}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .why-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .why-card{position:static}
+    .steps{grid-template-columns:repeat(2,1fr);gap:34px 22px}
+  }
+  @media(max-width:680px){
+    .wrap{padding:0 20px}
+    .pad{padding:68px 0}
+    .nav-links,.nav-cta .btn{display:none}
+    .menu-btn{display:block}
+    .mobile-open .nav-links{
+      display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;
+      background:var(--paper);border-bottom:1px solid var(--line);padding:8px 20px 20px;
+    }
+    .mobile-open .nav-links a{padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
+    .mobile-open .nav-links a::after{display:none}
+    .hero{padding:60px 0 56px}
+    .hero-foot{gap:24px;flex-direction:column;align-items:flex-start}
+    .svc-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    form{padding:26px 20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="top">
+  <div class="wrap nav" id="nav">
+    <a class="brand" href="#top" aria-label="Proware Associates home">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="32" height="32" rx="8" fill="#0C1E27"/>
+        <path d="M10 23V11h6.4c2.6 0 4.2 1.5 4.2 3.9 0 2.4-1.6 3.9-4.2 3.9H13" stroke="#EE6A1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 12l3 3-3 3" stroke="#F6F3EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Proware<small>Cargo · Logistics · Warehousing</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Proware</a>
+      <a href="#process">How it works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Request a quote <span class="arr">↗</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 8h18M4 13h18M4 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <span class="eyebrow reveal">Fully registered &nbsp;·&nbsp; UK &amp; international</span>
+    <h1 class="reveal" style="transition-delay:.08s">Your cargo, <em>moved</em> and <em>managed</em> — end to end.</h1>
+    <p class="lead reveal" style="transition-delay:.16s">Proware Associates handles freight by air, sea and road, plus the parts most carriers don't: flexible asset leasing and fully managed warehousing. One accountable partner, from collection to delivery to storage.</p>
+    <div class="hero-actions reveal" style="transition-delay:.24s">
+      <a href="#contact" class="btn btn-primary">Get a quote <span class="arr">↗</span></a>
+      <a href="#services" class="btn btn-ghost">Explore services</a>
+    </div>
+    <div class="hero-foot reveal" style="transition-delay:.32s">
+      <span class="label">What we handle</span>
+      <div class="modes">
+        <span><b>01</b> Air freight</span>
+        <span><b>02</b> Sea freight</span>
+        <span><b>03</b> Road &amp; door-to-door</span>
+        <span><b>04</b> Leasing</span>
+        <span><b>05</b> Warehousing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our services</span>
+      <h2>Everything your goods need, under one roof.</h2>
+      <p>Six connected services so you can ship, clear, lease and store without juggling multiple suppliers.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <span class="num">/ 01</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M3 16l24-9-9 24-3.5-10.5L3 16z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Air Freight</h3>
+        <p>Fast, tracked air cargo with door-to-door, door-to-airport and airport-to-airport options — including full import, export and customs handling.</p>
+      </div>
+      <div class="svc reveal" style="transition-delay:.06s">
+        <span class="num">/ 02</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M4 19h22l-2.5 5H6.5L4 19z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 19V8h9l4 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Sea Freight</h3>
+        <p>Cost-effective ocean shipping from a single pallet to a full container — groupage, vehicles, machinery and heavy goods, FCL or LCL.</p>
+      </div>
+      <div class="svc reveal" style="transition-delay:.12s">
+        <span class="num">/ 03</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="3" y="9" width="15" height="11" stroke="currentColor" stroke-width="2"/><path d="M18 12h5l4 4v4h-9" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="9" cy="22" r="2.4" stroke="currentColor" stroke-width="2"/><circle cx="21" cy="22" r="2.4" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3>Road &amp; Door-to-Door</h3>
+        <p>UK-wide collection from any address, professionally packed at our facility, then delivered direct to the destination door.</p>
+      </div>
+      <div class="svc feature reveal" style="transition-delay:.18s">
+        <span class="tag">Proware edge</span>
+        <span class="num">/ 04</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="4" y="6" width="22" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 12h22M10 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Leasing</h3>
+        <p>Lease warehouse space, vehicles and handling equipment on flexible terms — add capacity for a season or a contract without the capital cost of buying or building.</p>
+      </div>
+      <div class="svc feature reveal" style="transition-delay:.24s">
+        <span class="tag">Proware edge</span>
+        <span class="num">/ 05</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M4 12L15 5l11 7v13H4V12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="11" y="16" width="8" height="9" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3>Warehouse Management</h3>
+        <p>Secure storage, inventory control, pick-and-pack and fulfilment from our managed facilities — visibility over your stock at every stage.</p>
+      </div>
+      <div class="svc reveal" style="transition-delay:.3s">
+        <span class="num">/ 06</span>
+        <div class="ic"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M15 3l11 4v8c0 7-5 10-11 12C9 25 4 22 4 15V7l11-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M10 15l3.5 3.5L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Customs &amp; Packaging</h3>
+        <p>Compliant customs clearance and professional, transit-ready packaging that protects your shipment across borders.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section id="why" class="pad">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="sec-head reveal" style="margin-bottom:30px">
+          <span class="eyebrow">Why Proware</span>
+          <h2>More than a carrier.</h2>
+        </div>
+        <div class="why-list">
+          <div class="why-item reveal"><span class="k">01</span><div><h3>End-to-end, genuinely</h3><p>We don't just move goods — we lease the assets and store the stock too, so handovers between suppliers disappear.</p></div></div>
+          <div class="why-item reveal"><span class="k">02</span><div><h3>One accountable partner</h3><p>A single point of contact across freight, leasing and warehousing. Fewer invoices, fewer blind spots, clearer answers.</p></div></div>
+          <div class="why-item reveal"><span class="k">03</span><div><h3>Relationship-first service</h3><p>We build close, trusting relationships with our clients and tailor each solution to how your business actually runs.</p></div></div>
+          <div class="why-item reveal"><span class="k">04</span><div><h3>Compliant &amp; careful</h3><p>Customs-ready documentation and transit-grade packaging on every shipment — so goods arrive on time and intact.</p></div></div>
+        </div>
+      </div>
+      <aside class="why-card reveal">
+        <span class="badge">The Proware difference</span>
+        <h3>Move it. Lease it. Store it.</h3>
+        <p>Most logistics providers stop at the dock. Proware connects shipping, leasing and managed warehousing into one continuous service.</p>
+        <div class="line"></div>
+        <div class="stat"><span>Freight modes</span><b>Air · Sea · Road</b></div>
+        <div class="stat"><span>Value-added lines</span><b>Leasing · Warehousing</b></div>
+        <div class="stat"><span>Coverage</span><b>UK &amp; international</b></div>
+        <div class="stat"><span>Documentation</span><b>Customs-ready</b></div>
+        <div class="line"></div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Talk to our team <span class="arr">↗</span></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>A simple path from request to delivery.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Request a quote</h3><p>Tell us what you're moving, leasing or storing. We respond with clear pricing and options.</p></div>
+      <div class="step reveal" style="transition-delay:.08s"><div class="n">2</div><h3>We collect &amp; pack</h3><p>We collect from your door, professionally package, and prepare all documentation.</p></div>
+      <div class="step reveal" style="transition-delay:.16s"><div class="n">3</div><h3>We ship or store</h3><p>Goods move by air, sea or road — or go into managed storage until you need them.</p></div>
+      <div class="step reveal" style="transition-delay:.24s"><div class="n">4</div><h3>Delivered &amp; handled</h3><p>Cleared through customs and delivered to the destination, with one team accountable throughout.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="pad">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">About us</span>
+        <h2 style="margin-top:16px">Built to carry more of the load.</h2>
+      </div>
+      <div class="about-copy reveal" style="transition-delay:.08s">
+        <p>Proware Associates is a <strong>fully registered cargo and logistics company</strong> serving businesses and individuals moving goods across the UK and internationally.</p>
+        <p>We grew out of years of hands-on experience in cargo and logistics, and built Proware around a simple idea: clients shouldn't have to stitch together a shipper, a leasing firm and a warehouse. We bring all three together under one roof — and one relationship.</p>
+        <p>Whether you're sending a single shipment, leasing capacity for a season, or storing and fulfilling stock long-term, we handle it with the care and accountability of a partner, not just a courier.</p>
+        <div class="pill-row">
+          <span class="pill">Customer-focused</span>
+          <span class="pill">Competitive rates</span>
+          <span class="pill">Secure facilities</span>
+          <span class="pill">Compliant handling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="pad">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Let's move your cargo forward.</h2>
+        <p class="intro">Send us the details and we'll come back with a quote and the right service mix for your shipment, lease or storage need.</p>
+        <div class="cinfo">
+          <a href="tel:+440000000000"><span class="lbl">Phone</span><span class="val">+44 (0) 00 0000 0000</span></a>
+          <a href="mailto:hello@prowareassociates.com"><span class="lbl">Email</span><span class="val">hello@prowareassociates.com</span></a>
+          <div><span class="lbl">Office</span><span class="val">Address line 1,<br>City, Postcode, UK</span></div>
+          <div><span class="lbl">Hours</span><span class="val">Mon–Fri · 09:00–18:00</span></div>
+        </div>
+      </div>
+      <div>
+        <form id="quoteForm" class="reveal" style="transition-delay:.08s" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="jane@company.com" required>
+          </div>
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service">
+              <option>Air freight</option>
+              <option>Sea freight</option>
+              <option>Road &amp; door-to-door</option>
+              <option>Leasing</option>
+              <option>Warehouse management</option>
+              <option>Customs &amp; packaging</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="msg">Tell us about your shipment</label>
+            <textarea id="msg" name="msg" placeholder="What are you moving, from where to where, and roughly when?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send request <span class="arr">↗</span></button>
+          <p class="form-note">We'll reply within one business day.</p>
+        </form>
+        <div class="form-ok" id="formOk">
+          <div class="check"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Request received</h3>
+          <p>Thanks — your details are ready to send. We'll be in touch within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="8" fill="#16323F"/><path d="M10 23V11h6.4c2.6 0 4.2 1.5 4.2 3.9 0 2.4-1.6 3.9-4.2 3.9H13" stroke="#EE6A1C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12l3 3-3 3" stroke="#F6F3EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Proware Associates
+        </div>
+        <p style="font-size:14px;max-width:34ch;margin-top:14px">Cargo, leasing and warehousing — moved and managed under one roof.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Services</h4>
+          <a href="#services">Air freight</a>
+          <a href="#services">Sea freight</a>
+          <a href="#services">Road &amp; door-to-door</a>
+          <a href="#services">Leasing</a>
+          <a href="#services">Warehouse management</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="#about">About</a>
+          <a href="#why">Why Proware</a>
+          <a href="#process">How it works</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Proware Associates Ltd</span>
+      <span>Reg. no. 00000000 · UK</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header shadow on scroll
+  const header = document.getElementById('top');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 12));
+
+  // Mobile menu
+  const nav = document.getElementById('nav');
+  document.getElementById('menuBtn').addEventListener('click', () => nav.classList.toggle('mobile-open'));
+  nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('mobile-open')));
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form: client-side confirmation only (no backend wired yet)
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    this.style.display = 'none';
+    document.getElementById('formOk').classList.add('show');
+  });
+</script>
+</body>
+</html>
