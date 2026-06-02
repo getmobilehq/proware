@@ -5,6 +5,8 @@ freight (air / sea / road), **leasing**, and **managed warehousing** — *move i
 
 Static site, no build step. Vanilla HTML/CSS/JS.
 
+**Live:** https://getmobilehq.github.io/proware/ — deployed via GitHub Pages from `main` (root); every push to `main` redeploys.
+
 ## Run locally
 
 ```bash
@@ -34,5 +36,3 @@ deploy) is tracked in **HANDOVER.md**.
 
 Colours, type and usage are defined in `brand/Proware-Brand-Bible.pdf`. All site copy lives in
 `brand/Proware-Website-Copy.docx`.
-
-<!-- Live URL: add after first deploy -->
