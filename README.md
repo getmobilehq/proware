@@ -6,7 +6,7 @@ freight (air / sea / road), **leasing**, and **managed warehousing** — *move i
 Static site, no build step. Vanilla HTML/CSS/JS.
 
 **Live:**
-- https://proware.netlify.app — Netlify
+- https://prowareweb.netlify.app — Netlify
 - https://getmobilehq.github.io/proware/ — GitHub Pages (from `main`, root)
 
 Both deploy from `main`; every push redeploys.
